@@ -1,0 +1,7 @@
+{
+	"data":{
+		"font-path":"./utils/default.ttf",
+		"image-path":"./utils/default.png",
+		"text-color":"#ffffff"
+	}
+}
