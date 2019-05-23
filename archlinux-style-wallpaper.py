@@ -83,7 +83,7 @@ class program:
         marginLeft = int((image.size[0] / 3) / 2)
         marginBottom = int((image.size[1] - columnHeights) / 2)
         imageFreeContentAreaWidth = int(image.size[0] - (marginLeft * 2))
-        image = image.rotate(90, expand = 1)
+        image = image.rotate(-90, expand = 1)
         draw = PIL.ImageDraw.Draw(image)
         index = 0
         xCoordinates = []
