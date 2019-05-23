@@ -103,7 +103,7 @@ class program:
         index = 0
         for column in topicsAlphabeticallySorted:
             rows = len(columns[column])
-            infoFont = PIL.ImageFont.truetype(manifestData['data']['font-path'], int((columnHeights / 2) / rows))
+            infoFont = PIL.ImageFont.truetype(manifestData['data']['font-path'], int((columnHeights / 1.5) / rows))
             for row in range(rows):
                 topCoords = marginBottom + (int(columnHeights / rows) * row)
                 draw.text([xCoordinates[index], topCoords], columns[column][row], manifestData['data']['text-color'], font = infoFont)
