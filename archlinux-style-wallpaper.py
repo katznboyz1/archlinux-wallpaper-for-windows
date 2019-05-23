@@ -73,7 +73,7 @@ class program:
         columns = {
             'Time':[str(program.formatTimeString('%hour%:%minute%')), str(program.formatTimeString('%pm/am%')).lower()],
             'Day':[str(program.formatTimeString('%weekdayname%')), str(program.formatTimeString('%monthname% %day%'))],
-            'System':[str(sys.platform), str('Cpu: {}%'.format(str(psutil.cpu_percent())))]
+            'System':[str(sys.platform), str('Cpu: {}%'.format(str(psutil.cpu_percent()))), str('Mem: {}%'.format(psutil.virtual_memory().percent))]
         }
         topicsAlphabeticallySorted = ['Day', 'System', 'Time'] #fix this so it automatically sorts and you dont have to hardcode it
         marginWidth = 10
