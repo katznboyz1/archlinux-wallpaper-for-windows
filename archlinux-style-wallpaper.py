@@ -1,6 +1,7 @@
 #import statements
 import time, PIL, PIL.Image, PIL.ImageDraw, PIL.ImageFont, os, ctypes, datetime, sys, psutil
 import json as JSON
+from time import gmtime, strftime
 
 #the main class for this program
 class program:
@@ -71,7 +72,7 @@ class program:
         manifestData = program.getPresetData()
         image = PIL.Image.open(manifestData['data']['image-path'])
         columns = {
-            'Time':[str(program.formatTimeString('%hour%:%minute%')), str(program.formatTimeString('%pm/am%')).lower()],
+            'Time':[str(program.formatTimeString('%hour%:%minute%%pm/am%')), str('Gmt{}'.format(str(int(strftime("%z", gmtime())))))],
             'Day':[str(program.formatTimeString('%weekdayname%')), str(program.formatTimeString('%monthname% %day%'))],
             'System':[str(sys.platform), str('Cpu: {}%'.format(str(psutil.cpu_percent()))), str('Mem: {}%'.format(psutil.virtual_memory().percent))]
         }
