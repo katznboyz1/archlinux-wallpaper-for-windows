@@ -1,3 +1,3 @@
 Requirements: psutil, pillow.
 
-![](https://i.imgur.com/eDia7to.png?raw=true)
+![](https://i.imgur.com/IKqNLwe.png?raw=true)
