@@ -98,7 +98,7 @@ class program:
             'System':[str(sys.platform), str('Cpu: {}%'.format(str(psutil.cpu_percent()))), str('Mem: {}%'.format(psutil.virtual_memory().percent))]
         }
         topicsAlphabeticallySorted = ['Day', 'System', 'Time'] #fix this so it automatically sorts and you dont have to hardcode it
-        if (weatherData['weather-get-success']):
+        if (weatherData['weather-get-success'] and manifestData['data']['owm-api-key'] != ''):
             topicsAlphabeticallySorted.append('Weather')
             columns['Weather'] = [str(weatherData['location']).capitalize(), str('Temperature: {}°F'.format(str(weatherData['temperature']))), str('Weather: {}'.format(str(weatherData['weather'])))]
         marginWidth = 10
