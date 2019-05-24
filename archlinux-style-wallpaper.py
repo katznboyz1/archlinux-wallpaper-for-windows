@@ -44,6 +44,18 @@ class program:
             timeNow['minute'] = '0' + str(timeNow['minute'])
         weekday = datetime.datetime.now().strftime('%A').capitalize()
         monthname = datetime.datetime.now().strftime('%B').capitalize()
+        timeOfDayName = ''
+        hour = timeNow['hour_24HR']
+        if (hour < 5):
+            timeOfDayName = 'Night'
+        elif (hour < 12):
+            timeOfDayName = 'Morning'
+        elif (hour < 18):
+            timeOfDayName = 'Afternoon'
+        elif (hour < 20):
+            timeOfDayName = 'Evening'
+        else:
+            timeOfDayName = 'Night'
         replaceWith = [
             ['%year%', timeNow['year']],
             ['%month%', timeNow['month']],
@@ -58,6 +70,7 @@ class program:
             ['%dst%', timeNow['daylightsavingtime']],
             ['%weekdayname%', weekday],
             ['%monthname%', monthname],
+            ['%timeofdayname%', timeOfDayName]
         ]
         for each in range(len(replaceWith)):
             string = string.replace(str(replaceWith[each][0]), str(replaceWith[each][1]))
@@ -72,7 +85,7 @@ class program:
         manifestData = program.getPresetData()
         image = PIL.Image.open(manifestData['data']['image-path'])
         columns = {
-            'Time':[str(program.formatTimeString('%hour%:%minute%%pm/am%')), str('Gmt{}'.format(str(int(strftime("%z", gmtime())))))],
+            'Time':[str(program.formatTimeString('%hour%:%minute%%pm/am%')), str(program.formatTimeString('%timeofdayname%')).lower().capitalize()],
             'Day':[str(program.formatTimeString('%weekdayname%')), str(program.formatTimeString('%monthname% %day%'))],
             'System':[str(sys.platform), str('Cpu: {}%'.format(str(psutil.cpu_percent()))), str('Mem: {}%'.format(psutil.virtual_memory().percent))]
         }
