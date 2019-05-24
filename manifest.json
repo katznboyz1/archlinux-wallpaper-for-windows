@@ -2,6 +2,8 @@
 	"data":{
 		"font-path":"./utils/default.ttf",
 		"image-path":"./utils/default.png",
-		"text-color":"#ffffff"
+		"text-color":"#ffffff",
+		"closest-city":"New York",
+		"owm-api-key":""
 	}
 }
