@@ -1,4 +1,4 @@
-#archlinux-wallpaper-for-windows
+# archlinux-wallpaper-for-windows
 
 **Requirements: psutil, pillow.**
 
